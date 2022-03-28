@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <title>Layout(2)</title>
+</head>
+<body>
+    <div id="app">
+        <!--전체를 v-app으로 감싸서 실행-->
+        <v-app>
+            <v-app-bar app color="primary" dark fixed>
+                <!--좌측에 메뉴아이콘 추가-->
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <!--제목-->
+                <v-toolbar-title>Master Page</v-toolbar-title>
+                <!--추가메뉴 아이콘을 넣기위해 한칸띄우기-->
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                    <!--mdi- :  material design공식 site에서 가져옴-->
+                    <!--material design icon의 이름을 가져와서 작성해주면된다-->
+                    <v-icon>mdi-dots-vertical</v-icon>
+                </v-btn>
+
+
+            </v-app-bar>
+                <v-content>
+                    <v-container>
+                        <!--html태그에 뷰티파이 디자인을 넣을때 class를 통해 접근-->
+                        <!--color--text를 이용해서 글자색을 넣을 수 있다.-->
+                        <!--이때 색상은 material design에서 지정된 색-->
+                        <!--배경색도 지정가능; color이름만 넣음된다-->
+                        <h1 class="display-1 ma-5 red--text" >안녕하세요</h1>
+                        <p class="body-2">Master Page입니다.</p>
+
+                        <!--가운데 선이 출력됨-->
+                        <v-divider></v-divider>
+                        <v-btn color="lime darken-4--text indigo red accent-1">버튼입니다</v-btn>
+                    </v-container>
+                </v-content>
+
+                <v-footer color="secondary" dark fixed>
+                    <div class="mx-auto">Copyright &copy;</div>
+                </v-footer>
+                
+        </v-app>
+    </div>
+    
+    <script>
+        new Vue({
+            el : "#app",
+            //뷰티파이 객체를 추가
+            vuetify : new Vuetify(),
+        })
+    </script>
+</body>
+</html>
