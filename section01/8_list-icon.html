@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--구글폰트와 아이콘 둘다 사용할 수있다. ; icon을 사용할때는 _를 이용한다-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+icon" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <!--list와 아이콘-->
+    <div id="app">
+        <v-app>
+            <v-app-bar app color="primary" dark>
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+                <v-toolbar-title>Virtual Company</v-toolbar-title>
+            </v-app-bar>
+
+            <v-content>
+                <v-container> <!--v-card를 사용하면 card design을 사용할 수있다.-->
+                    <!--v-list와 v-item의 관계는 ul, li의 관계와 동일하다-->
+                    <v-list v-for="item in aList">
+                        <!--list안에는 item을 꼭 적어줘야함
+                        \   @click를 붙이면 vuetify효과를 사용할 수있다-->
+                        <v-list-item @click="">
+                            <!--list item안의 요소를 세분화 시킴-->
+                            <v-list-item-avatar>
+                                <!--icon작성-->
+                                <v-icon :class="item.icon_style">{{item.icon_name}}</v-icon>
+                            </v-list-item-avatar>
+                            <v-list-item-content>
+                                <!--제목-->
+                                <v-list-title>{{item.title}}</v-list-title>
+                            </v-list-item-content>
+                            <!--button만들기-->
+                            <v-list-item-action>
+                                <v-btn icon>
+                                    <v-icon>mdi-chevron-right</v-icon>
+                                </v-btn>
+                            </v-list-item-action>
+                        </v-list-item>
+                    </v-list>
+
+                    <!--배열 값을 이용해서 v-for확인-->
+                </v-container>
+            </v-content>
+        </v-app>
+    </div>
+
+
+    <script>
+        new Vue({
+            el:'#app',
+            vuetify : new Vuetify(),
+            data : {
+                aList : [
+                    {
+                        icon_name : 'mdi-camera',
+                        icon_style : 'red white--text',
+                        title : 'Product Image',
+                    },
+                    {
+                        icon_name : 'mdi-camera',
+                        icon_style : 'red white--text',
+                        title : 'Product Image',
+                    },
+                    {
+                        icon_name : 'mdi-camera',
+                        icon_style : 'red white--text',
+                        title : 'Product Image',
+                    },
+                    
+                ]
+            }
+
+        })
+    </script>
+</body>
+</html>
