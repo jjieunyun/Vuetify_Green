@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+icon" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <title>트랜지션</title>
+</head>
+<body>
+    <!--transition : css에서의 애니메이션효과와 비슷함
+        transition컴포넌트로 쌓여진 엘리먼트가 삽입되거나 제거될 떄 실행된다
+        사용조건 : v-if/ v-show/ v-for을 엘리먼트에 써야함!
+        class : -->
+        <div id="app">
+            <v-app>
+                <v-btn @click="fade=!fade">Fade</v-btn>
+                <v-fade-transition>
+                    <h3 v-show="fade">Fade</h3>
+                </v-fade-transition>
+
+                
+                <!--transition은 한개의 요소에 적용이 되고 여러개 적용할때는 group속성사용-->
+                <v-btn @click="num +=1">Slide</v-btn>
+
+                <v-card>
+                    <v-list>
+                        <v-slide-x-transition group>
+                            <v-list-item v-for="n in num" :key="n">
+                                <v-list-item-content>
+                                    <v-list-item-title>아이템추가 : {{n}}</v-list-item-title>
+                                </v-list-item-content>
+                            </v-list-item>
+                        </v-slide-x-transition>
+                    </v-list>
+                </v-card>
+
+
+
+            </v-app>
+        </div>
+
+        <script>
+            new Vue ({
+                el : '#app',
+                vuetify : new Vuetify(),
+                data : {
+                    fade : false,
+                    slide : false,
+                    num : 1,
+                }
+            })
+        </script>
+
+</body>
+</html>
